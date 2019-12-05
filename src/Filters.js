@@ -36,3 +36,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filters);
+
+
+//Burada neden activeFilter'ı state olarak gösterdik?? Sadece changeFilter'ı göstersek yetmiyor mu?
