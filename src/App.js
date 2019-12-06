@@ -66,7 +66,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => ({
     setTodos: (todos) => {dispatch(setTodos(todos))},
-    addTodo: (todo) => {dispatch(addTodo(todo))}
+    
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

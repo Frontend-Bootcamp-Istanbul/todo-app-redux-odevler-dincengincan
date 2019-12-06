@@ -1,5 +1,7 @@
 import React from 'react';
 import Todo from './Todo';
+import {connect} from "react-redux";
+import { showNotif, hideNotif} from "./actionCreators/actionCreaters";
 
 
 
@@ -7,6 +9,13 @@ class TodoList extends React.Component{
     constructor(props){
         super(props);
     }
+
+    handleNotification = () => {
+        this.props.showNotif("remove"); 
+        setTimeout((this.props.hideNotif), 1000);
+    }
+    
+
     render(){
         return (
             <div className="todo-list">
@@ -17,12 +26,25 @@ class TodoList extends React.Component{
                         return <Todo
                             {...todo}
                             key={todo.id}
+                            handleNotification = {this.handleNotification}
                         />
                     })
                 }
+
+                
             </div>
         );
     }
 }
 
-export default TodoList;
+
+
+
+const mapDispatchToProps = dispatch => ({
+    showNotif: (addRemove) => {dispatch(showNotif(addRemove))},
+    hideNotif: () => {dispatch(hideNotif())},
+
+  });
+
+
+  export default connect(null, mapDispatchToProps)(TodoList);

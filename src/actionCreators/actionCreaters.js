@@ -1,4 +1,4 @@
-import {SET_FILTER, SET_TODOS, ADD_TODO, REMOVE_TODO, REMOVE_ALL, TOGGLE_COMPLETESTATUS} from "../actions/actions";
+import {SET_FILTER, SET_TODOS, ADD_TODO, REMOVE_TODO, REMOVE_ALL, TOGGLE_COMPLETESTATUS, HIDE_NOTIFICATION, SHOW_NOTIFICATION} from "../actions/actions";
 
 export function setFilter(newFilter){
     return {type: SET_FILTER, activeFilter: newFilter}
@@ -22,5 +22,13 @@ export function removeAll(){
 
 export function toggleCompleteStatus(id){
     return {type: TOGGLE_COMPLETESTATUS, id} 
+}
+
+export function showNotif(addRemove){
+    return {type: SHOW_NOTIFICATION, addRemove}
+}
+
+export function hideNotif(){
+    return {type: HIDE_NOTIFICATION}
 }
 
