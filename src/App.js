@@ -6,6 +6,36 @@ import "./App.css";
 import Filters from "./Filters";
 import {connect} from "react-redux";
 import { setTodos, addTodo} from "./actionCreators/actionCreaters";
+import styled from 'styled-components';
+
+
+const Container = styled.div`
+    background-color: whitesmoke;
+    border-radius: 3px;
+    width: 850px;
+    margin: 30px auto;
+    border: 1px solid #ddd;
+`;
+
+const AddTodoContainer = styled.div`
+    display: inline-block ;
+    width: 30%;
+    padding:10px;
+    vertical-align: top;
+`;
+
+const H3 = styled.h3`
+    background: #346;
+    text-align: center;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 0 0 2px 2px;
+    margin:0;
+    margin-bottom: 20px;
+`;
+
+
+
 
 
 class App extends Component {
@@ -44,17 +74,15 @@ class App extends Component {
   render(){
       console.log("App props", this.props);
     return (
-        <div className="App" id="todo">
-            <div className="todo-list todo-list-add">
-                <h3>Todo Ekle / Sil</h3>
-                <div>
-                    <AddTodo   />
-                    <RemoveAll />
-                    <Filters />
-                </div>
-            </div>
+        <Container>
+            <AddTodoContainer>
+                <H3>Todo App</H3>
+                <AddTodo   />
+                <RemoveAll />
+                <Filters />
+            </AddTodoContainer>
             <TodoList todos={this.filterTodos(this.props.todos, this.props.activeFilter)} />
-        </div>
+        </Container>
     );
   }
 }

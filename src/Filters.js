@@ -1,11 +1,30 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {setFilter} from "./actionCreators/actionCreaters";
+import styled from 'styled-components';
+
+
+const FilterDiv = styled.div`
+    margin-top: 15px;
+    padding-left: 10px;
+    cursor: pointer;
+    width: 50%;
+    border-radius: 20px;
+    &:hover {
+        background-color: #7d3232;
+        color: white;
+        font-weight: bold;
+    
+
+
+`;
+
+
 
 const options = [
-    {label: "Hepsi", labelKey: "all"},
-    {label: "Tamamlanmış", labelKey: "completed"},
-    {label: "Tamamlanmamış", labelKey: "uncompleted"}
+    {label: "All", labelKey: "all"},
+    {label: "Completed", labelKey: "completed"},
+    {label: "Uncompleted", labelKey: "uncompleted"}
 ];
 
 class Filters extends Component {
@@ -14,11 +33,11 @@ class Filters extends Component {
         return <div>
             {
                 options.map((option) => {
-                    return <div onClick={() => {
+                    return <FilterDiv onClick={() => {
                         this.props.changeFilter(option.labelKey);
                     }}>
                         {option.label}
-                    </div>
+                    </FilterDiv>
                 })
             }
         </div>
